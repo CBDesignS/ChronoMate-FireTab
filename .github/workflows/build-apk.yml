@@ -1,0 +1,74 @@
+name: Build FireTab APK
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - "ChronoMate.html"
+      - "style.css"
+      - "app.js"
+      - "session.js"
+      - "report.js"
+      - "assets/**"
+      - "data/**"
+      - "app/**"
+      - "build.gradle"
+      - "settings.gradle"
+      - "gradle.properties"
+      - ".github/workflows/build-apk.yml"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Java 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Install Android SDK packages
+        run: |
+          sdkmanager "platforms;android-34" "build-tools;34.0.0"
+
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: "8.2.1"
+
+      - name: Copy ChronoMate web files into APK
+        run: |
+          rm -rf app/src/main/assets/www
+          mkdir -p app/src/main/assets/www/assets
+          mkdir -p app/src/main/assets/www/data
+
+          cp ChronoMate.html app/src/main/assets/www/
+          cp style.css app/src/main/assets/www/
+          cp app.js app/src/main/assets/www/
+          cp session.js app/src/main/assets/www/
+          cp report.js app/src/main/assets/www/
+          cp -R assets/. app/src/main/assets/www/assets/
+          cp -R data/. app/src/main/assets/www/data/
+
+      - name: Build debug APK
+        run: gradle --no-daemon assembleDebug
+
+      - name: Rename APK
+        run: |
+          cp app/build/outputs/apk/debug/app-debug.apk              ChronoMate-FireTab-Dev-0.1.0.apk
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: ChronoMate-FireTab-Dev-0.1.0
+          path: ChronoMate-FireTab-Dev-0.1.0.apk
+          if-no-files-found: error
