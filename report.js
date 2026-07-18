@@ -34,9 +34,7 @@ function openReportWindow(report) {
         </tr>
     `).join("");
 
-    const reportWindow = window.open("", "ChronoMateReport");
-
-    reportWindow.document.write(`
+    const reportHtml = `
         <!DOCTYPE html>
         <html>
         <head>
@@ -372,7 +370,22 @@ function openReportWindow(report) {
             </footer>
         </body>
         </html>
-    `);
+    `;
 
+    // FireTab Android wrapper: open the report in a dedicated native WebView.
+    if (window.AndroidBridge && typeof window.AndroidBridge.openReport === "function") {
+        window.AndroidBridge.openReport(reportHtml);
+        return;
+    }
+
+    // Desktop browser fallback.
+    const reportWindow = window.open("", "ChronoMateReport");
+
+    if (!reportWindow) {
+        alert("The report window could not be opened.");
+        return;
+    }
+
+    reportWindow.document.write(reportHtml);
     reportWindow.document.close();
 }

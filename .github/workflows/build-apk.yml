@@ -64,11 +64,11 @@ jobs:
 
       - name: Rename APK
         run: |
-          cp app/build/outputs/apk/debug/app-debug.apk              ChronoMate-FireTab-Dev-0.1.0.apk
+          cp app/build/outputs/apk/debug/app-debug.apk              ChronoMate-FireTab-Dev-0.2.0.apk
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: ChronoMate-FireTab-Dev-0.1.0
-          path: ChronoMate-FireTab-Dev-0.1.0.apk
+          name: ChronoMate-FireTab-Dev-0.2.0
+          path: ChronoMate-FireTab-Dev-0.2.0.apk
           if-no-files-found: error

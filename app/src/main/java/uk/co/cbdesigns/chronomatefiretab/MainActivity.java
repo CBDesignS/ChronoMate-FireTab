@@ -1,8 +1,10 @@
 package uk.co.cbdesigns.chronomatefiretab;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.ViewGroup;
+import android.webkit.JavascriptInterface;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -35,6 +37,7 @@ public class MainActivity extends Activity {
         settings.setAllowFileAccessFromFileURLs(true);
         settings.setAllowUniversalAccessFromFileURLs(true);
 
+        webView.addJavascriptInterface(new AndroidBridge(), "AndroidBridge");
         webView.setWebViewClient(new WebViewClient());
         setContentView(webView);
 
@@ -42,6 +45,20 @@ public class MainActivity extends Activity {
             webView.loadUrl("file:///android_asset/www/ChronoMate.html");
         } else {
             webView.restoreState(savedInstanceState);
+        }
+    }
+
+    private class AndroidBridge {
+        @JavascriptInterface
+        public void openReport(final String reportHtml) {
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    Intent intent = new Intent(MainActivity.this, ReportActivity.class);
+                    intent.putExtra(ReportActivity.EXTRA_REPORT_HTML, reportHtml);
+                    startActivity(intent);
+                }
+            });
         }
     }
 
@@ -65,6 +82,7 @@ public class MainActivity extends Activity {
         if (webView != null) {
             webView.loadUrl("about:blank");
             webView.stopLoading();
+            webView.removeJavascriptInterface("AndroidBridge");
             webView.setWebViewClient(null);
             webView.destroy();
             webView = null;
