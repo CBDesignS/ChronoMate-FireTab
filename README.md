@@ -2,7 +2,7 @@
 
 <img src="assets/logo.png" alt="ChronoMate 2026 Logo" width="600">
 
-# ChronoMate 2026 Android Version 0.3.3
+# ChronoMate 2026 Android Version 0.4.0
 
 ### Lightweight, offline chronograph recording software for air rifles.
 
