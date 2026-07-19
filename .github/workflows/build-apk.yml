@@ -59,16 +59,32 @@ jobs:
           cp -R assets/. app/src/main/assets/www/assets/
           cp -R data/. app/src/main/assets/www/data/
 
-      - name: Build debug APK
-        run: gradle --no-daemon assembleDebug
+      - name: Restore permanent release keystore
+        env:
+          CHRONOMATE_KEYSTORE_BASE64: ${{ secrets.CHRONOMATE_KEYSTORE_BASE64 }}
+        run: |
+          set -euo pipefail
+          if [ -z "$CHRONOMATE_KEYSTORE_BASE64" ]; then
+            echo "Missing GitHub secret: CHRONOMATE_KEYSTORE_BASE64"
+            exit 1
+          fi
+          printf '%s' "$CHRONOMATE_KEYSTORE_BASE64" | base64 --decode > "$RUNNER_TEMP/chronomate-release.jks"
+
+      - name: Build signed release APK
+        env:
+          CHRONOMATE_KEYSTORE_PATH: ${{ runner.temp }}/chronomate-release.jks
+          CHRONOMATE_STORE_PASSWORD: ${{ secrets.CHRONOMATE_STORE_PASSWORD }}
+          CHRONOMATE_KEY_ALIAS: ${{ secrets.CHRONOMATE_KEY_ALIAS }}
+          CHRONOMATE_KEY_PASSWORD: ${{ secrets.CHRONOMATE_KEY_PASSWORD }}
+        run: gradle --no-daemon assembleRelease
 
       - name: Rename APK
         run: |
-          cp app/build/outputs/apk/debug/app-debug.apk              ChronoMate-v0.3.3.apk
+          cp app/build/outputs/apk/release/app-release.apk ChronoMate-v0.4.0.apk
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: ChronoMate-v0.3.3
-          path: ChronoMate-v0.3.3.apk
+          name: ChronoMate-v0.4.0
+          path: ChronoMate-v0.4.0.apk
           if-no-files-found: error
