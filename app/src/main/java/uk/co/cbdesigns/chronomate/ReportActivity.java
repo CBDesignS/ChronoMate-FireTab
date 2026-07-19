@@ -1,8 +1,13 @@
 package uk.co.cbdesigns.chronomate;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
+import android.print.PrintAttributes;
+import android.print.PrintDocumentAdapter;
+import android.print.PrintManager;
 import android.view.ViewGroup;
+import android.webkit.JavascriptInterface;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -32,6 +37,7 @@ public class ReportActivity extends Activity {
         settings.setDisplayZoomControls(false);
         settings.setSupportZoom(true);
 
+        reportWebView.addJavascriptInterface(new ReportPrintBridge(), "AndroidReportBridge");
         reportWebView.setWebViewClient(new WebViewClient());
         setContentView(reportWebView);
 
@@ -51,6 +57,40 @@ public class ReportActivity extends Activity {
         );
     }
 
+    private class ReportPrintBridge {
+        @JavascriptInterface
+        public void printReport() {
+            runOnUiThread(() -> startReportPrint());
+        }
+    }
+
+    private void startReportPrint() {
+        if (reportWebView == null) {
+            return;
+        }
+
+        PrintManager printManager =
+                (PrintManager) getSystemService(Context.PRINT_SERVICE);
+
+        if (printManager == null) {
+            return;
+        }
+
+        PrintDocumentAdapter printAdapter =
+                reportWebView.createPrintDocumentAdapter("ChronoMate Report");
+
+        PrintAttributes printAttributes = new PrintAttributes.Builder()
+                .setMediaSize(PrintAttributes.MediaSize.ISO_A4.asLandscape())
+                .setMinMargins(PrintAttributes.Margins.NO_MARGINS)
+                .build();
+
+        printManager.print(
+                "ChronoMate Report",
+                printAdapter,
+                printAttributes
+        );
+    }
+
     @Override
     public void onBackPressed() {
         if (reportWebView != null && reportWebView.canGoBack()) {
@@ -63,6 +103,7 @@ public class ReportActivity extends Activity {
     @Override
     protected void onDestroy() {
         if (reportWebView != null) {
+            reportWebView.removeJavascriptInterface("AndroidReportBridge");
             reportWebView.loadUrl("about:blank");
             reportWebView.stopLoading();
             reportWebView.setWebViewClient(null);

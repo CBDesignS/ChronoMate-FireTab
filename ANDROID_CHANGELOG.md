@@ -1,5 +1,12 @@
 # ChronoMate Android Changelog
 
+## v0.5.0
+- Added native Android report printing through Android PrintManager.
+- The report Print button now opens Android print preview and supports Save as PDF.
+- Android report output defaults to A4 landscape.
+- Desktop browser printing remains unchanged through window.print().
+- No chronograph calculations, backup data or user-storage behaviour were changed.
+
 ## v0.4.1
 - Version update to verify in-place APK upgrades using the permanent release signing key.
 - No functional changes.
