@@ -287,34 +287,87 @@ footer{
     }
 
     .header{
-        align-items:flex-start;
+        flex-direction:column;
+        align-items:stretch;
+        gap:20px;
     }
 
     .header-left{
         width:100%;
+        display:grid;
+        grid-template-columns:110px minmax(0,1fr);
+        align-items:center;
+        gap:18px;
     }
 
     .logo{
-        width:86px;
-        max-width:86px;
+        width:110px;
+        max-width:110px;
     }
 
     .title h1{
-        font-size:1.8rem;
+        font-size:1.9rem;
+        line-height:1.05;
+    }
+
+    .title p{
+        font-size:.95rem;
+        line-height:1.35;
     }
 
     .header-right{
         width:100%;
-        justify-content:space-between;
+        display:grid;
+        grid-template-columns:minmax(0,1fr) 92px;
+        align-items:end;
+        gap:16px;
     }
 
     .setting{
-        flex:1;
-        min-width:130px;
+        min-width:0;
+    }
+
+    .backup-setting{
+        grid-column:1 / -1;
+    }
+
+    .backup-buttons{
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        gap:10px;
     }
 
     .energy{
         font-size:2.5rem;
+    }
+}
+
+@media(max-width:430px){
+    .card{
+        padding:20px;
+    }
+
+    .header-left{
+        grid-template-columns:96px minmax(0,1fr);
+        gap:14px;
+    }
+
+    .logo{
+        width:96px;
+        max-width:96px;
+    }
+
+    .title h1{
+        font-size:1.7rem;
+    }
+
+    .version{
+        font-size:1.05rem;
+    }
+
+    .title p{
+        margin-top:6px;
+        font-size:.86rem;
     }
 }
 .button-row{

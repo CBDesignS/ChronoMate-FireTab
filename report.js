@@ -38,6 +38,7 @@ function openReportWindow(report) {
         <!DOCTYPE html>
         <html>
         <head>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>ChronoMate Report</title>
             <style>
                 body {
@@ -186,6 +187,72 @@ function openReportWindow(report) {
                     font-size: 0.82rem;
                     color: ${reportTheme.muted};
                     text-align: center;
+                }
+
+                @media screen and (max-width: 760px) {
+                    body {
+                        margin: 14px;
+                    }
+
+                    .report-toolbar {
+                        position: static;
+                        margin-bottom: 14px;
+                    }
+
+                    .print-note {
+                        display: none;
+                    }
+
+                    .report-header img {
+                        width: 74px;
+                    }
+
+                    h1 {
+                        font-size: 1.75rem;
+                    }
+
+                    .report-layout {
+                        grid-template-columns: 1fr;
+                        gap: 14px;
+                    }
+
+                    .report-panel {
+                        min-width: 0;
+                        padding: 12px;
+                    }
+
+                    .info-grid,
+                    .stats-grid {
+                        grid-template-columns: 1fr 1fr;
+                        gap: 7px 12px;
+                    }
+
+                    table {
+                        font-size: .92rem;
+                    }
+
+                    th, td {
+                        padding: 7px 5px;
+                    }
+                }
+
+                @media screen and (max-width: 430px) {
+                    body {
+                        margin: 10px;
+                    }
+
+                    .report-toolbar button {
+                        width: 100%;
+                    }
+
+                    .info-grid,
+                    .stats-grid {
+                        grid-template-columns: 1fr;
+                    }
+
+                    h2 {
+                        font-size: 1.15rem;
+                    }
                 }
 
                 @media print {
