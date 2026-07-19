@@ -1,5 +1,9 @@
 # ChronoMate Android Changelog
 
+## v0.4.1
+- Version update to verify in-place APK upgrades using the permanent release signing key.
+- No functional changes.
+
 ## v0.4.0
 
 - Established permanent release signing for in-place Android updates.
