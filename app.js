@@ -1417,6 +1417,15 @@ if(importBackupButton && backupFileInput)
         "click",
         function()
         {
+            // Android WebView uses the system Open File picker. The hidden
+            // file input remains unchanged for the desktop browser version.
+            if(window.AndroidBridge &&
+               typeof window.AndroidBridge.importBackup === "function")
+            {
+                window.AndroidBridge.importBackup();
+                return;
+            }
+
             backupFileInput.click();
         }
     );

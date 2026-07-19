@@ -1,5 +1,14 @@
 # ChronoMate Android Changelog
 
+## v0.3.3
+
+- Added Android-native **Import Data** support.
+- Import now opens Android's standard file picker for selecting a ChronoMate JSON backup.
+- The selected JSON is passed into ChronoMate's existing backup validation and import function.
+- The desktop browser file-input import path remains unchanged.
+- The shared backup format is unchanged, allowing backups to move between desktop and Android.
+- No PDF functionality was added in this release.
+
 ## v0.3.2
 
 - Added Android-native **Export Data** support.

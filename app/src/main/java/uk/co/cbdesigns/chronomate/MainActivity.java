@@ -12,12 +12,18 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Toast;
 
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
+
+import org.json.JSONObject;
 
 public class MainActivity extends Activity {
 
     private static final int REQUEST_CREATE_BACKUP = 1001;
+    private static final int REQUEST_OPEN_BACKUP = 1002;
 
     private WebView webView;
     private String pendingBackupJson;
@@ -70,6 +76,28 @@ public class MainActivity extends Activity {
                     Intent intent = new Intent(MainActivity.this, ReportActivity.class);
                     intent.putExtra(ReportActivity.EXTRA_REPORT_HTML, reportHtml);
                     startActivity(intent);
+                }
+            });
+        }
+
+        @JavascriptInterface
+        public void importBackup() {
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+                    intent.addCategory(Intent.CATEGORY_OPENABLE);
+                    intent.setType("application/json");
+
+                    try {
+                        startActivityForResult(intent, REQUEST_OPEN_BACKUP);
+                    } catch (Exception error) {
+                        Toast.makeText(
+                                MainActivity.this,
+                                "No compatible file picker is available.",
+                                Toast.LENGTH_LONG
+                        ).show();
+                    }
                 }
             });
         }
@@ -133,10 +161,61 @@ public class MainActivity extends Activity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode != REQUEST_CREATE_BACKUP) {
+        if (requestCode == REQUEST_OPEN_BACKUP) {
+            handleBackupImportResult(resultCode, data);
             return;
         }
 
+        if (requestCode == REQUEST_CREATE_BACKUP) {
+            handleBackupExportResult(resultCode, data);
+        }
+    }
+
+    private void handleBackupImportResult(int resultCode, Intent data) {
+        if (resultCode != RESULT_OK || data == null || data.getData() == null) {
+            return;
+        }
+
+        Uri source = data.getData();
+
+        try (InputStream inputStream = getContentResolver().openInputStream(source);
+             BufferedReader reader = inputStream == null
+                     ? null
+                     : new BufferedReader(new InputStreamReader(inputStream, "UTF-8"))) {
+
+            if (reader == null) {
+                throw new IllegalStateException("Could not open the selected file.");
+            }
+
+            StringBuilder jsonBuilder = new StringBuilder();
+            String line;
+
+            while ((line = reader.readLine()) != null) {
+                jsonBuilder.append(line).append('\n');
+            }
+
+            final String backupJson = jsonBuilder.toString().trim();
+
+            if (backupJson.isEmpty()) {
+                throw new IllegalStateException("The selected file was empty.");
+            }
+
+            String javascript =
+                    "try { importChronoMateBackup(JSON.parse(" +
+                    JSONObject.quote(backupJson) +
+                    ")); } catch (error) { alert('This backup file could not be read.'); }";
+
+            webView.evaluateJavascript(javascript, null);
+        } catch (Exception error) {
+            Toast.makeText(
+                    this,
+                    "ChronoMate could not read the selected backup file.",
+                    Toast.LENGTH_LONG
+            ).show();
+        }
+    }
+
+    private void handleBackupExportResult(int resultCode, Intent data) {
         if (resultCode != RESULT_OK || data == null || data.getData() == null) {
             pendingBackupJson = null;
             return;
