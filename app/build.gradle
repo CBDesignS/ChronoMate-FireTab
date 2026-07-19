@@ -3,15 +3,15 @@ plugins {
 }
 
 android {
-    namespace "uk.co.cbdesigns.chronomatefiretab"
+    namespace "uk.co.cbdesigns.chronomate"
     compileSdk 34
 
     defaultConfig {
-        applicationId "uk.co.cbdesigns.chronomatefiretab"
+        applicationId "uk.co.cbdesigns.chronomate"
         minSdk 22
         targetSdk 34
-        versionCode 3
-        versionName "0.2.1"
+        versionCode 4
+        versionName "0.2.2"
     }
 
     buildTypes {

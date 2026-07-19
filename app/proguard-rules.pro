@@ -1,2 +1,2 @@
-# ChronoMate FireTab Dev 0.1.0
+# ChronoMate Android v0.2.2
 # No shrinking or obfuscation is enabled for the first test build.

@@ -14,5 +14,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "ChronoMateFireTab"
+rootProject.name = "ChronoMate"
 include(":app")

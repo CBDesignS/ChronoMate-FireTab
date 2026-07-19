@@ -2,7 +2,7 @@
 
 <img src="assets/logo.png" alt="ChronoMate 2026 Logo" width="600">
 
-# ChronoMate 2026 Fire Tablet Version 0.3.0
+# ChronoMate 2026 Fire Tablet Version 0.1.0
 
 ### Lightweight, offline chronograph recording software for air rifles.
 
@@ -12,7 +12,7 @@
 
 ## Overview
 
-ChronoMate 2026 is a lightweight application for recording air rifle chronograph sessions.
+ChronoMate 2026 is a lightweight desktop application for recording air rifle chronograph sessions.
 
 Designed to be simple, fast and completely offline, ChronoMate allows you to record shot strings, calculate muzzle energy, manage rifle and pellet information, save rifle profiles, and generate professional printable reports.
 
@@ -68,24 +68,18 @@ The guides below can be viewed directly on GitHub or opened from the **docs** fo
 
 Tested on:
 
-* Amazon Fire Tab 10 rev 7
-* Amazon Fire Tab 10 rev 11
+* Amazon Fire Tab 10 rev7
 
-Supported Desktop browsers:
+Supported browsers:
 
 * Mozilla Firefox ( tested on Version 1520.5 (64-bit))
 * Microsoft Edge (tested on Version 135.0.7049.115 (Official Build) (64-bit))
 * Brave Browser (tested on )
 * Chrome (tested on Version 135.0.7049.115 (Official Build) (64-bit))
 
-Recommended devices
+ChronoMate is designed for desktop browsers.
 
-✅ Windows PC/Laptop
-✅ Android tablets (10" or larger)
-⚠ Smaller Android tablets may be usable.
-❌ Mobile phones are not recommended due to limited screen space.
-
-iOS local file execution are not currently supported due to mobile operating system restrictions.
+Android and iOS local file execution are not currently supported due to mobile operating system restrictions.
 
 ---
 
