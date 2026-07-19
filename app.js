@@ -1288,20 +1288,32 @@ function exportChronoMateBackup()
     const json =
         JSON.stringify(backup, null, 4);
 
+    const timestamp =
+        new Date().toISOString().slice(0, 16).replace("T", "_").replace(":", "");
+
+    const filename =
+        `ChronoMate_Backup_${timestamp}.json`;
+
+    // Android WebView uses the system Save As picker. The browser path
+    // below remains unchanged for the desktop version of ChronoMate.
+    if(window.AndroidBridge &&
+       typeof window.AndroidBridge.exportBackup === "function")
+    {
+        window.AndroidBridge.exportBackup(json, filename);
+        return;
+    }
+
     const blob =
         new Blob([json], { type: "application/json" });
 
     const link =
         document.createElement("a");
 
-    const timestamp =
-        new Date().toISOString().slice(0, 16).replace("T", "_").replace(":", "");
-
     link.href =
         URL.createObjectURL(blob);
 
     link.download =
-        `ChronoMate_Backup_${timestamp}.json`;
+        filename;
 
     link.click();
 

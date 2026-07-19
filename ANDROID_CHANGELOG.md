@@ -1,5 +1,14 @@
 # ChronoMate Android Changelog
 
+## v0.3.2
+
+- Added Android-native **Export Data** support.
+- The existing ChronoMate backup builder and JSON format remain unchanged.
+- Export now opens Android's standard **Save As** picker, allowing the user to choose any available document location.
+- No broad storage permission is required.
+- The desktop browser export path remains unchanged.
+- No Import or PDF functionality was added in this release.
+
 ## v0.3.1
 
 - Added on-screen keyboard Enter/Done support for the Velocity field.
