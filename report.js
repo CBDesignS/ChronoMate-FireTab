@@ -344,9 +344,21 @@ function openReportWindow(report) {
             </style>
         </head>
         <body>
+            <script>
+                function printChronoMateReport() {
+                    if (window.AndroidReportBridge &&
+                        typeof window.AndroidReportBridge.printReport === "function") {
+                        window.AndroidReportBridge.printReport();
+                        return;
+                    }
+
+                    window.print();
+                }
+            </script>
+
             <div class="report-toolbar">
                 <div class="print-note">Best printed in A4 landscape</div>
-                <button onclick="window.print()">🖨 Print Report</button>
+                <button onclick="printChronoMateReport()">🖨 Print Report</button>
             </div>
 
             <div class="report-header">
