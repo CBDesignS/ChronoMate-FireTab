@@ -1,5 +1,12 @@
 # ChronoMate Android Changelog
 
+## v0.3.0
+
+- Enabled JavaScript alert and confirmation dialogs in the Android WebView.
+- Activated the existing **Clear Shot String** button and its confirmation prompt.
+- Clearing a shot string removes only the current recorded shots and resets the displayed results.
+- No Export, Import or PDF functionality was added in this release.
+
 ## v0.2.3
 
 - Added a responsive narrow-screen header layout for Android phones.

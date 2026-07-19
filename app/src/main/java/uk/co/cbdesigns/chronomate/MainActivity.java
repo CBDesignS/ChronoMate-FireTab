@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.ViewGroup;
 import android.webkit.JavascriptInterface;
+import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -38,6 +39,10 @@ public class MainActivity extends Activity {
         settings.setAllowUniversalAccessFromFileURLs(true);
 
         webView.addJavascriptInterface(new AndroidBridge(), "AndroidBridge");
+
+        // Enables JavaScript alert/confirm dialogs used by ChronoMate.
+        // The Clear Shot String button relies on confirm() before deleting shots.
+        webView.setWebChromeClient(new WebChromeClient());
         webView.setWebViewClient(new WebViewClient());
         setContentView(webView);
 
