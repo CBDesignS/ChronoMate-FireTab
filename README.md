@@ -75,7 +75,7 @@ Tested on:
 
 ChronoMate is designed for desktop browsers and Android Tablets / Large screen Phones.
 
-Android and iOS local file execution are not currently supported due to mobile operating system restrictions.
+iOS local file execution are not currently supported due to mobile operating system restrictions.
 
 ---
 
