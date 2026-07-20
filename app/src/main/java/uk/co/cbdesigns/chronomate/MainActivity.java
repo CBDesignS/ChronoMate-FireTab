@@ -97,6 +97,11 @@ public class MainActivity extends Activity {
                     }
                 });
                 dialog.show();
+                if (dialog.getWindow() != null) {
+                    dialog.getWindow().setBackgroundDrawableResource(
+                            R.drawable.dialog_rounded_background
+                    );
+                }
                 return true;
             }
         });

@@ -1,5 +1,22 @@
 # ChronoMate Android Changelog
 
+## v0.6.2
+
+### Improved
+
+- Native Android confirmation dialogs now use a rounded-corner background.
+- Clear Shot String, Delete Saved Rifle and Delete User Pellet confirmations retain the improved ChronoMate wording while presenting a softer, more modern dialog shape.
+
+### Changed
+
+- Updated Android application version to v0.6.2 with versionCode 16.
+- Updated GitHub Actions to generate `ChronoMate-v0.6.2.apk`.
+
+### Notes
+
+This release changes confirmation-dialog appearance only.
+No confirmation logic, chronograph calculations, backup data, report generation or storage behaviour were changed.
+
 ## v0.6.1
 
 ### Improved
