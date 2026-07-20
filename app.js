@@ -1476,7 +1476,7 @@ function clearShotHistory()
 {
     if(shotHistory.length===0)
     {
-        alert("There are no shots to clear.");
+        showSuccessMessage("There are no shots to clear.");
         return;
     }
 

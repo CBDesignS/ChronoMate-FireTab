@@ -1,5 +1,23 @@
 # ChronoMate Android Changelog
 
+## v0.6.3
+
+### Fixed
+
+- Fixed the remaining raw WebView `file://` alert shown when **Clear Shot String** is pressed with no recorded shots.
+- The **There are no shots to clear** message now uses the same timed Android bottom notification as the other app messages.
+- Desktop browser behaviour retains the existing alert fallback.
+
+### Changed
+
+- Updated Android application version to v0.6.3 with versionCode 17.
+- Updated GitHub Actions to generate `ChronoMate-v0.6.3.apk`.
+
+### Notes
+
+This release fixes one missed Android notification path only.
+No shot-clearing logic, chronograph calculations, reports, backups or stored data were changed.
+
 ## v0.6.2
 
 ### Improved
