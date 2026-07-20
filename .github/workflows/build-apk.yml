@@ -80,11 +80,11 @@ jobs:
 
       - name: Rename APK
         run: |
-          cp app/build/outputs/apk/release/app-release.apk ChronoMate-v0.6.3.apk
+          cp app/build/outputs/apk/release/app-release.apk ChronoMate-v0.6.4.apk
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: ChronoMate-v0.6.3
-          path: ChronoMate-v0.6.3.apk
+          name: ChronoMate-v0.6.4
+          path: ChronoMate-v0.6.4.apk
           if-no-files-found: error

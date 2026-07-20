@@ -1,5 +1,23 @@
 # ChronoMate Android Changelog
 
+## v0.6.4
+
+### Fixed
+
+- Fixed the remaining raw WebView `file://` alert shown when **Add User Pellet** is pressed without the required pellet details.
+- The **Please enter manufacturer, pellet name, and a valid weight** message now uses the same timed Android bottom notification as the other app messages.
+- Desktop browser behaviour retains the existing alert fallback.
+
+### Changed
+
+- Updated Android application version to v0.6.4 with versionCode 18.
+- Updated GitHub Actions to generate `ChronoMate-v0.6.4.apk`.
+
+### Notes
+
+This release fixes one missed Android notification path only.
+No pellet-saving logic, chronograph calculations, reports, backups or stored data were changed.
+
 ## v0.6.3
 
 ### Fixed

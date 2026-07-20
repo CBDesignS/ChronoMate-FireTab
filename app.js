@@ -214,7 +214,7 @@ function saveUserAmmoFromForm()
 
     if(!manufacturer || !name || isNaN(grains) || grains <= 0)
     {
-        alert("Please enter manufacturer, pellet name, and a valid weight.");
+        showSuccessMessage("Please enter manufacturer, pellet name, and a valid weight.");
         return;
     }
 
