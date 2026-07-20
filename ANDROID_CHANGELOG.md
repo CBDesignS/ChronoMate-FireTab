@@ -1,5 +1,43 @@
 # ChronoMate Android Changelog
 
+## v0.6.0
+
+### Improved
+
+- Replaced JavaScript success alert dialogs with native Android toast notifications.
+- Rifle save confirmation now uses a native Android notification.
+- Backup import confirmation now uses a native Android notification.
+- Export notification behaviour remains consistent across the application.
+
+### Changed
+
+- Updated Android application version to v0.6.0.
+- Updated GitHub Actions release workflow to generate ChronoMate-v0.6.0.apk.
+
+### Notes
+
+This release focuses on Android UI refinement only.
+No changes have been made to chronograph calculations or report generation.
+
+## v0.5.1 - Report Print Layout Improvements
+
+### Changed
+- Improved printed report appearance on Android and desktop.
+- Print output now uses a dedicated light theme for improved readability.
+- Report panels now print with light backgrounds and dark text regardless of the selected application theme.
+- Improved table readability in printed reports.
+
+### Fixed
+- Fixed dark mode causing poor contrast in printed reports.
+- Fixed printed report styling to produce a cleaner PDF output.
+- Improved consistency between desktop and Android report printing.
+- Fixed report footer causing an unnecessary second page when printing or saving as PDF.
+
+### Android
+- Native Android PrintManager support retained.
+- Improved Android PDF output layout and readability.
+- Continued compatibility with desktop report format.
+
 ## v0.5.0
 - Added native Android report printing through Android PrintManager.
 - The report Print button now opens Android print preview and supports Save as PDF.
