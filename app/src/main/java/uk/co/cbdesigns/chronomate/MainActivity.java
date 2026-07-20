@@ -69,6 +69,20 @@ public class MainActivity extends Activity {
 
     private class AndroidBridge {
         @JavascriptInterface
+        public void showToast(final String message) {
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    Toast.makeText(
+                            MainActivity.this,
+                            message,
+                            Toast.LENGTH_SHORT
+                    ).show();
+                }
+            });
+        }
+
+        @JavascriptInterface
         public void openReport(final String reportHtml) {
             runOnUiThread(new Runnable() {
                 @Override

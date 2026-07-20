@@ -409,6 +409,19 @@ function buildSavedRifleList()
 }
 
 
+function showSuccessMessage(message)
+{
+    if(window.AndroidBridge &&
+       typeof window.AndroidBridge.showToast === "function")
+    {
+        window.AndroidBridge.showToast(message);
+        return;
+    }
+
+    alert(message);
+}
+
+
 function saveCurrentRifle()
 {
     const rifle =
@@ -427,7 +440,7 @@ function saveCurrentRifle()
     if(savedRifleSelect)
         savedRifleSelect.value = rifle.id;
 
-    alert("Rifle saved.");
+    showSuccessMessage("Rifle saved successfully.");
 }
 
 
@@ -1363,7 +1376,7 @@ function importChronoMateBackup(backup)
         saveFormToSession();
     }
 
-    alert("ChronoMate backup imported successfully.");
+    showSuccessMessage("ChronoMate backup imported successfully.");
 }
 
 
