@@ -1021,6 +1021,12 @@ function addShot()
 
     velocityInput.value = "";
     velocityInput.focus();
+
+    if(window.AndroidBridge &&
+       typeof window.AndroidBridge.showVelocityKeyboard === "function")
+    {
+        window.AndroidBridge.showVelocityKeyboard();
+    }
 }
 
 

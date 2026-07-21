@@ -1,5 +1,11 @@
 # ChronoMate Android Changelog
 
+## v0.6.7
+
+- Improved Fire OS shot-entry workflow.
+- After the keyboard Enter key records a shot, ChronoMate now asks Android to reopen the on-screen keyboard while keeping focus on the cleared FPS field.
+- Android 17 behaviour is unchanged when its keyboard already remains visible.
+
 ## v0.6.6
 
 ### Fixed

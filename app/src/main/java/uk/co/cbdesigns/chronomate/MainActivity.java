@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.webkit.JavascriptInterface;
 import android.webkit.JsResult;
 import android.webkit.WebChromeClient;
@@ -135,6 +136,34 @@ public class MainActivity extends Activity {
                     Intent intent = new Intent(MainActivity.this, ReportActivity.class);
                     intent.putExtra(ReportActivity.EXTRA_REPORT_HTML, reportHtml);
                     startActivity(intent);
+                }
+            });
+        }
+
+        @JavascriptInterface
+        public void showVelocityKeyboard() {
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    // Some Fire OS keyboards close after the Enter/Done action
+                    // even though the HTML velocity field has been refocused.
+                    // Reopen the keyboard shortly after submission so the next
+                    // shot can be entered without tapping the field again.
+                    webView.requestFocus();
+                    webView.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            InputMethodManager inputMethodManager =
+                                    (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+
+                            if (inputMethodManager != null) {
+                                inputMethodManager.showSoftInput(
+                                        webView,
+                                        InputMethodManager.SHOW_IMPLICIT
+                                );
+                            }
+                        }
+                    }, 150L);
                 }
             });
         }
