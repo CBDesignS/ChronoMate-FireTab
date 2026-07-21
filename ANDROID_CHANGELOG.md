@@ -1,5 +1,17 @@
 # ChronoMate Android Changelog
 
+## v0.6.9
+
+### Fixed
+
+- The recorded-shot counter now resets immediately when the current shot string is cleared.
+- The counter displays `0 of the selected target` without waiting for another shot to be entered.
+- No changes were made to shot entry, calculations, reports, import/export or Android keyboard handling.
+- Updated Android application version to v0.6.9 with versionCode 23.
+- Updated GitHub Actions to generate `ChronoMate-v0.6.9.apk`.
+
+---
+
 ## v0.6.8
 
 ### Fixed

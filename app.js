@@ -1509,6 +1509,8 @@ function clearShotHistory()
     powerStatus.className = "status safe";
 
     powerBar.style.width = "0%";
+
+    updateShotCounter();
 }
 
 
