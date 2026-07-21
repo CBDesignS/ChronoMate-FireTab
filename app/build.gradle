@@ -18,8 +18,8 @@ android {
         applicationId "uk.co.cbdesigns.chronomate"
         minSdk 22
         targetSdk 34
-        versionCode 23
-        versionName "0.6.9"
+        versionCode 24
+        versionName "1.1.0"
     }
 
     signingConfigs {
