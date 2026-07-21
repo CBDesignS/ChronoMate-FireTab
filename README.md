@@ -1,10 +1,10 @@
 <div align="center">
 
-<img src="assets/logo.png" alt="ChronoMate 2026 Logo" width="600">
+<img src="assets/logo.png" alt="ChronoMate Logo" width="600">
 
-# ChronoMate 2026 Android Version 0.6.7
+# ChronoMate Android v1.1.1
 
-### Lightweight, offline chronograph recording software for air rifles.
+### Lightweight offline chronograph recording software for air rifles
 
 </div>
 
@@ -12,27 +12,27 @@
 
 ## Overview
 
-ChronoMate 2026 is a lightweight Android application for recording air rifle chronograph sessions.
+ChronoMate Android is a lightweight application for recording and managing air rifle chronograph sessions.
 
-Designed to be simple, fast and completely offline, ChronoMate allows you to record shot strings, calculate muzzle energy, manage rifle and pellet information, save rifle profiles, and generate professional printable reports.
+Designed to be simple, fast and completely offline, ChronoMate allows you to record shot strings, calculate muzzle energy, manage rifle and pellet information, save rifle profiles, and generate professional printable reports directly from your Android device.
 
-Download the Latest Release ChronoMate.apk
-install and it will add the ChronoMate App icon to your desired Launcher page. click to run and add your details and get Adding Chrono shots.
+There are no subscriptions, cloud services or online accounts required. Your data remains on your own device unless you choose to export a backup.
 
 ---
 
-## Key Features
+## Features
 
-* Lightweight and portable
-* Runs completely offline
-* Professional printable reports
-* Automatic ft-lb and Joule calculations
-* Supports FPS and m/s
-* Built-in pellet database for **.177, .22 and .25** air rifle pellets
-* User pellet database
-* Saved rifle profiles
-* Portable Backup & Restore
-* Light and Dark themes
+- Lightweight and fast
+- Runs completely offline
+- Professional printable reports
+- Automatic ft-lb and Joule calculations
+- Supports FPS and metres per second (m/s)
+- Built-in pellet database for **.177**, **.22** and **.25**
+- User pellet database
+- Saved rifle profiles
+- Portable Backup & Restore
+- Light and Dark themes
+- Compatible backup files with the desktop edition of ChronoMate
 
 ---
 
@@ -46,69 +46,74 @@ ChronoMate has been designed around one simple principle:
 
 > **If a feature does not improve the recording, reporting or management of chronograph sessions, it does not belong in the application.**
 
-The aim is to remain lightweight, fast, easy to use and easy to maintain without unnecessary complexity.
+The goal is to remain lightweight, reliable, easy to use and easy to maintain without unnecessary complexity or feature creep.
 
 ---
 
 ## Documentation
 
-The complete ChronoMate documentation is included with the project.
+Complete documentation is included with every release.
 
-The guides below can be viewed directly on GitHub or opened from the **docs** folder included with every release.
-
-* [Installation Guide](docs/INSTALL.md)
-* [User Guide](docs/USERGUIDE.md)
-* [Backup & Restore](docs/BACKUP.md)
-* [Frequently Asked Questions](docs/FAQ.md)
-* [Changelog](docs/CHANGELOG.md)
+- [Installation Guide](docs/INSTALL.md)
+- [User Guide](docs/USERGUIDE.md)
+- [Backup & Restore](docs/BACKUP.md)
+- [Frequently Asked Questions](docs/FAQ.md)
+- [Android Changelog](ANDROID_CHANGELOG.md)
 
 ---
 
-## System Requirements
+## Tested Devices
 
-Tested on:
+ChronoMate has been successfully tested on:
 
-* Amazon Fire Tab 10 rev 7
-* Amazon Fire Tab 10 rev 11
-* Google Pixel 10 (Android 17)
+- Amazon Fire HD 10 (7th Generation)
+- Amazon Fire HD 10 (11th Generation)
+- Google Pixel 10 (Android 17)
 
+The application is designed primarily for Android tablets but also functions correctly on larger Android phones.
 
-ChronoMate is designed for desktop browsers and Android Tablets / Large screen Phones.
+---
 
-iOS local file execution are not currently supported due to mobile operating system restrictions.
+## Compatibility
+
+- Android 5.1 or later
+- Amazon Fire OS supported
+- Fully offline operation
+- Android Print Manager support
+- Backup files compatible with the desktop version of ChronoMate
 
 ---
 
 ## Project Status
 
-ChronoMate is feature complete and is currently in its final pre-release stage before Version **1.0.0**.
+**Version 1.1.1** is the first full Android release.
 
-Future releases will focus on:
+The Android edition has reached feature parity with the desktop version while retaining a native Android experience for printing, file import/export and notifications.
 
-* Documentation improvements
-* Built-in pellet database expansion
-* Bug fixes
-* Long-term maintenance
+Future releases will primarily focus on:
 
-New functionality will only be added where it clearly improves the recording, reporting or management of chronograph sessions while preserving ChronoMate's lightweight design philosophy.
+- Built-in pellet database updates
+- Bug fixes
+- Documentation improvements
+- Long-term maintenance
+
+New features will only be added where they genuinely improve the recording, reporting or management of chronograph sessions while preserving ChronoMate's lightweight design philosophy.
 
 ---
 
 ## Credits
 
-Designed and Developed by
+Designed and developed by
 
-**Chris Bruce**
+**Chris Bruce**  
 (CBDesignS)
 
-Developed in collaboration with
-
-**OpenAI ChatGPT**
+Developed in collaboration with **OpenAI ChatGPT**
 
 ---
 
 ## License
 
-ChronoMate 2026 is distributed under the MIT License.
+ChronoMate Android is released under the MIT License.
 
 See the LICENSE file for details.
