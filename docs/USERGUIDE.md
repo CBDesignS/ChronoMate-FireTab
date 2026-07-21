@@ -1,10 +1,10 @@
-# ChronoMate 2026 User Guide
+# ChronoMate Android User Guide
 
 ## Introduction
 
-Welcome to ChronoMate 2026.
+Welcome to **ChronoMate Android**.
 
-ChronoMate has been designed to make recording air rifle chronograph sessions as simple as possible.
+ChronoMate Android has been designed to make recording air rifle chronograph sessions as simple, accurate and efficient as possible.
 
 A typical session consists of:
 
@@ -15,7 +15,7 @@ A typical session consists of:
 5. Generating a printable report.
 6. Backing up your data when required.
 
-All information is stored locally on your computer. No internet connection is required.
+All information is stored locally on your Android device. No internet connection is required.
 
 📷 **[View Main Window Screenshot](images/main-window.png)**
 
@@ -23,17 +23,15 @@ All information is stored locally on your computer. No internet connection is re
 
 # Starting ChronoMate
 
-No installation is required.
+Open **ChronoMate** from your app drawer.
 
-Open **ChronoMate.html** using a supported desktop browser.
-
-The application will load immediately.
+The application loads immediately and is ready for use.
 
 ---
 
 # Creating a Session
 
-Before recording any shots, enter the session details.
+Before recording any shots, enter the session information.
 
 Typical information includes:
 
@@ -43,7 +41,7 @@ Typical information includes:
 - Rifle
 - Configuration notes
 
-These details appear on the final report and provide a permanent record of the test session.
+These details become part of the final report and provide a permanent record of your shooting session.
 
 ---
 
@@ -51,9 +49,12 @@ These details appear on the final report and provide a permanent record of the t
 
 ChronoMate allows frequently used rifles to be saved for future sessions.
 
-Select an existing rifle from the list or create a new one.
+You can either:
 
-Saved rifle profiles are stored locally and included when using the Backup & Restore feature.
+- Select an existing rifle.
+- Create a new rifle profile.
+
+Saved rifle profiles are stored locally and included in exported backup files.
 
 📷 **[View Rifle Management Screenshot](images/rifles.png)**
 
@@ -61,68 +62,73 @@ Saved rifle profiles are stored locally and included when using the Backup & Res
 
 ---
 
-# Selecting Ammunition
+# Selecting Pellets
 
-ChronoMate includes a built-in pellet database covering many popular .177, .22 and .25 air rifle pellets from leading manufacturers.
+ChronoMate includes a built-in pellet database covering many popular **.177**, **.22** and **.25** air rifle pellets from leading manufacturers.
 
-If your ammunition is not listed, you can create your own User Pellet.
+If your pellet is not listed, simply create your own **User Pellet**.
 
-User pellets are stored separately from the built-in database so future ChronoMate updates will never overwrite your custom entries.
+User pellets are stored separately from the built-in database, ensuring future ChronoMate updates will never overwrite your custom entries.
 
-📷 **[View Ammo Selection Screenshot](images/ammo-select.png)**
+📷 **[View Pellet Selection Screenshot](images/ammo-select.png)**
 
 ---
 
 # Recording a Shot String
 
-Enter each velocity reading into the Velocity box.
+Enter each velocity reading into the **Velocity** field.
 
-You may either:
+You may:
 
-- Click **Add Shot**
-- Press **Enter**
+- Tap **Add Shot**
+- Press **Enter** on supported keyboards
 
-ChronoMate automatically records:
+ChronoMate automatically calculates:
 
 - Velocity
 - Muzzle Energy (ft-lb)
 - Muzzle Energy (Joules)
 
-The live statistics update automatically after every shot.
+Live statistics update automatically after every shot.
 
 ---
 
-# Shot String Target
+# Shot Counter
 
-Select the number of shots you intend to record.
+Select the number of shots you intend to record before beginning the session.
 
-The live counter displays the current progress through the shot string.
+The live shot counter displays your current progress.
 
-When the selected target is reached the counter changes colour to indicate the shot string is complete.
+Once the selected number of shots has been recorded, the counter changes colour to indicate the shot string is complete.
 
 ---
 
 # Clearing a Shot String
 
-Selecting **Clear Shot String** removes the current shot string only.
+Selecting **Clear Shot String** removes only the current shot string.
 
-Saved rifles, user pellets and application settings are not affected.
+It does **not** remove:
+
+- Saved rifles
+- User pellets
+- Settings
+- Session information
 
 ---
 
 # Generating a Report
 
-Select **Generate Report** to produce a printable report.
+Tap **Generate Report** to produce a professional printable report.
 
-The report includes:
+Reports include:
 
 - Session information
 - Rifle details
 - Pellet details
-- Shot data
+- Individual shot data
 - Calculated statistics
 
-Reports are designed for landscape printing and may also be saved as PDF using your browser's Print function.
+Reports are designed for landscape printing using Android's built-in Print Manager and may also be saved as PDF.
 
 📷 **[View Example Report](images/report.png)**
 
@@ -132,32 +138,28 @@ Reports are designed for landscape printing and may also be saved as PDF using y
 
 ChronoMate supports both Light and Dark themes.
 
-Select the preferred appearance using the Theme selector.
+Simply select your preferred appearance using the **Theme** selector.
 
-Your selected theme is remembered for future sessions.
+Your chosen theme is remembered automatically.
 
 ---
 
 # Backup & Restore
 
-ChronoMate includes a built-in backup system for all user data.
+ChronoMate includes a built-in backup system.
 
-This includes:
+Backups include:
 
 - Saved rifles
 - User pellets
 - Session information
-- Settings
+- Application settings
 
-For detailed instructions see the
-[Backup & Restore Guide](BACKUP.md).
+Backup files are fully compatible with the desktop edition of ChronoMate.
 
----
+For detailed instructions, see the **Backup & Restore Guide**.
 
-# Frequently Asked Questions
-
-Answers to common questions can be found in the
-[Frequently Asked Questions](FAQ.md).
+→ [Backup & Restore Guide](BACKUP.md)
 
 ---
 
@@ -165,15 +167,15 @@ Answers to common questions can be found in the
 
 If you experience problems using ChronoMate:
 
-1. Confirm you are using a supported desktop browser.
-2. Ensure all application files remain in their original folders.
-3. Verify JavaScript is enabled.
+- Ensure the application is up to date.
+- Verify that sufficient storage space is available.
+- Export a backup before reinstalling the application if necessary.
 
-Most startup issues are caused by incomplete extraction of the release ZIP archive or by moving application files out of their original folders.
+For installation or update issues, refer to the **Installation Guide**.
 
 ---
 
-## Documentation Pages
+## Documentation
 
 ← [Installation Guide](INSTALL.md)
 
@@ -181,4 +183,6 @@ Most startup issues are caused by incomplete extraction of the release ZIP archi
 
 → [Backup & Restore](BACKUP.md)
 
-Doc Version 1.0.0
+→ [Frequently Asked Questions](FAQ.md)
+
+Doc Version 1.1.1
