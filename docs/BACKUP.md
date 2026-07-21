@@ -1,99 +1,123 @@
-# ChronoMate 2026 Backup & Restore Guide
+# ChronoMate Android Backup & Restore Guide
 
 ## Introduction
 
-ChronoMate includes a built-in Backup & Restore system designed to protect your personal data when updating the application or moving to another computer.
+ChronoMate Android includes a built-in Backup & Restore system to help protect your data.
 
-All backups are stored as a single portable JSON file.
+Creating regular backups is recommended, particularly before installing application updates or moving to a new Android device.
+
+Backup files are fully compatible with the desktop edition of ChronoMate.
 
 ---
 
-## What Is Included?
+## What is Included?
 
-The backup contains all user-created data, including:
+A backup contains your personal ChronoMate data, including:
 
-- Application settings
-- Saved rifle profiles
+- Saved rifles
 - User pellet database
-- Session information (tester, chronograph and notes)
+- Application settings
+- Session information
 
-The built-in pellet database (.177, .22 and .25) is not included because it forms part of the ChronoMate application itself and is updated through new software releases.
+Built-in pellet data is **not** included, as it is already part of every ChronoMate release.
 
 ---
 
 ## Creating a Backup
 
-1. Open ChronoMate.
-2. Select **Export Data**.
-3. Choose a location to save the backup file.
-4. Keep the file somewhere safe.
+Creating a backup only takes a few seconds.
 
-It is recommended that a backup is created before installing a newer version of ChronoMate.
-It is recommended to test your backup occasionally by importing it into a newer ChronoMate release.
+1. Open **ChronoMate**.
+2. Tap **Export Data**.
+3. Choose a location using the Android file picker.
+4. Enter a filename if required.
+5. Tap **Save**.
 
-📷 **[View Backup Controls Screenshot](images/backup-restore.png)**
+Your backup file has now been created.
+
+It is good practice to keep more than one backup and store copies somewhere safe.
+
 ---
 
 ## Restoring a Backup
 
-1. Open ChronoMate.
-2. Select **Import Data**.
-3. Browse to your saved backup file.
-4. Confirm the import.
+To restore a previously created backup:
 
-Your saved settings, rifles and user pellets will be restored automatically.
+1. Open **ChronoMate**.
+2. Tap **Import Data**.
+3. Select your backup file using the Android file picker.
+4. Wait for the confirmation message.
 
-📷 **[View Backup Controls Screenshot](images/backup-restored.png)**
----
-
-## Moving to Another Computer
-
-Copy both:
-
-- The latest ChronoMate release.
-- Your exported backup file.
-
-Open ChronoMate on the new computer and import the backup.
-
-No manual copying of data files is required.
+Your saved data is restored immediately.
 
 ---
 
 ## Backup Compatibility
 
-ChronoMate stores the software version inside every backup.
+ChronoMate backup files are compatible across supported platforms.
 
-This information is intended to assist with future compatibility if the backup format changes in later versions.
+You can:
+
+- Restore an Android backup into the desktop edition.
+- Restore a desktop backup into ChronoMate Android.
+
+This makes it easy to move between devices while keeping all of your rifles, pellets and settings.
 
 ---
 
-## Good Practice
+## Before Updating
 
-It is recommended that you:
+Although application updates normally preserve your saved data, creating a backup before installing a new version is always recommended.
 
-- Create a backup before every software update.
-- Keep more than one backup if important data has been added.
-- Store backups somewhere safe.
+A backup provides a quick and reliable way to restore everything should it ever be required.
+
+---
+
+## Moving to a New Device
+
+When changing Android devices:
+
+1. Export a backup from your existing device.
+2. Copy the backup file to your new device.
+3. Install ChronoMate.
+4. Import the backup.
+
+All supported data will be restored.
 
 ---
 
 ## Troubleshooting
 
-If a backup cannot be imported:
+### Import does not open the file picker
 
-- Check that the file is a valid ChronoMate backup.
-- Ensure the file has not been modified manually.
-- Verify that you are using a supported version of ChronoMate.
+If **Developer Options** are enabled, ensure **Don't keep activities** is **disabled**.
+
+Enabling this option forces Android to close applications whenever they lose focus and may prevent the file picker from returning correctly.
 
 ---
 
-## Documentation Pages
+### Backup file cannot be found
+
+Use your preferred file manager to locate the folder where the backup was saved, then browse to that location using the Android file picker.
+
+---
+
+### Import failed
+
+Ensure the selected file is a valid ChronoMate backup.
+
+If the backup was transferred from another device, verify that the transfer completed successfully before attempting the import again.
+
+---
+
+## Documentation
 
 ← [User Guide](USERGUIDE.md)
 
 ↑ [Project README](../README.md)
 
+→ [Installation Guide](INSTALL.md)
+
 → [Frequently Asked Questions](FAQ.md)
 
-
-Doc version 1.0.0
+Doc Version 1.1.1
