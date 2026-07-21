@@ -143,18 +143,32 @@ public class MainActivity extends Activity {
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
+                    // Fire OS file pickers do not consistently recognise the
+                    // application/json MIME type. Allow any openable document,
+                    // then validate the selected file as JSON after reading it.
                     Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
                     intent.addCategory(Intent.CATEGORY_OPENABLE);
-                    intent.setType("application/json");
+                    intent.setType("*/*");
 
                     try {
                         startActivityForResult(intent, REQUEST_OPEN_BACKUP);
-                    } catch (Exception error) {
-                        Toast.makeText(
-                                MainActivity.this,
-                                "No compatible file picker is available.",
-                                Toast.LENGTH_LONG
-                        ).show();
+                    } catch (Exception openDocumentError) {
+                        // Older or modified Android builds may not expose a full
+                        // Storage Access Framework picker. ACTION_GET_CONTENT is
+                        // the compatible fallback and still returns a content URI.
+                        Intent fallbackIntent = new Intent(Intent.ACTION_GET_CONTENT);
+                        fallbackIntent.addCategory(Intent.CATEGORY_OPENABLE);
+                        fallbackIntent.setType("*/*");
+
+                        try {
+                            startActivityForResult(fallbackIntent, REQUEST_OPEN_BACKUP);
+                        } catch (Exception getContentError) {
+                            Toast.makeText(
+                                    MainActivity.this,
+                                    "No compatible file picker is available.",
+                                    Toast.LENGTH_LONG
+                            ).show();
+                        }
                     }
                 }
             });
@@ -276,18 +290,34 @@ public class MainActivity extends Activity {
                 jsonBuilder.append(line).append('\n');
             }
 
-            final String backupJson = jsonBuilder.toString().trim();
+            String backupJson = jsonBuilder.toString().trim();
+
+            if (backupJson.startsWith("\uFEFF")) {
+                backupJson = backupJson.substring(1).trim();
+            }
 
             if (backupJson.isEmpty()) {
                 throw new IllegalStateException("The selected file was empty.");
             }
 
-            String javascript =
-                    "try { importChronoMateBackup(JSON.parse(" +
-                    JSONObject.quote(backupJson) +
-                    ")); } catch (error) { alert('This backup file could not be read.'); }";
+            // Validate in Android before handing the object to the WebView. This
+            // avoids the extra JSON.parse(string) step that fails on some older
+            // Fire OS WebView versions while preserving ChronoMate's JS importer.
+            new JSONObject(backupJson);
 
-            webView.evaluateJavascript(javascript, null);
+            final String validatedBackupJson = backupJson;
+            webView.post(new Runnable() {
+                @Override
+                public void run() {
+                    String javascript =
+                            "try { importChronoMateBackup(" +
+                            validatedBackupJson +
+                            "); } catch (error) { " +
+                            "showSuccessMessage('This backup file could not be read.'); }";
+
+                    webView.evaluateJavascript(javascript, null);
+                }
+            });
         } catch (Exception error) {
             Toast.makeText(
                     this,

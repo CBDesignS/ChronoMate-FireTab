@@ -1,5 +1,25 @@
 # ChronoMate Android Changelog
 
+## v0.6.5
+
+### Fixed
+
+- Improved backup-file selection compatibility on older Fire OS tablets by allowing any openable document instead of relying on the inconsistently recognised `application/json` MIME type.
+- Added an `ACTION_GET_CONTENT` fallback for Android builds that do not provide a working `ACTION_OPEN_DOCUMENT` picker.
+- Backup files are now read and validated natively by Android before being passed directly into ChronoMate's existing JavaScript import function.
+- Removed the additional WebView `JSON.parse()` hand-off step that could fail on older Fire OS WebView versions.
+- Added handling for an optional UTF-8 byte-order mark at the start of a backup file.
+
+### Changed
+
+- Updated Android application version to v0.6.5 with versionCode 19.
+- Updated GitHub Actions to generate `ChronoMate-v0.6.5.apk`.
+
+### Notes
+
+This release changes Android backup-file selection and hand-off only.
+The ChronoMate backup format, validation rules, export process, desktop import path and stored user data are unchanged.
+
 ## v0.6.4
 
 ### Fixed
