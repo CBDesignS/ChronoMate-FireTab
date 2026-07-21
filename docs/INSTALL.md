@@ -85,7 +85,8 @@ Updating is straightforward.
 
 1. Export a backup (recommended).
 2. Download the latest APK.
-3. Install the new APK over the existing installation, please refer to play protect if ChronoMate-Android will not update.
+3. Install the new APK over the existing installation.
+If Android prevents the update, refer to the **Google Play Protect** section above.
 
 Your rifles, pellets and settings will normally be preserved.
 
@@ -125,9 +126,9 @@ Depending on your device, you can:
 
 Allow installation from unknown sources or follow the on-screen prompts.
 
-### Play Protect warning
+### Play Protect prevents installation
 
-Select **Install Anyway**.
+Temporarily pause **Google Play Protect** as described in the **Google Play Protect** section above, then install the APK.
 
 ### Updating fails
 
