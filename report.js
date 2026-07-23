@@ -2,7 +2,7 @@
 ============================================================
 
  ChronoMate 2026
- Version v1.2.0
+ Version v1.3.0
  Report Window Module
 
 ============================================================
@@ -405,6 +405,12 @@ function openReportWindow(report) {
                     }
 
                     footer {
+                        margin-top: 10px;
+                        padding-top: 6px;
+                        font-size: 9px;
+                    }
+
+                    body.android-report footer {
                         display: none !important;
                     }
                 }
@@ -412,6 +418,13 @@ function openReportWindow(report) {
         </head>
         <body>
             <script>
+                document.addEventListener("DOMContentLoaded", function() {
+                    if (window.AndroidReportBridge &&
+                        typeof window.AndroidReportBridge.printReport === "function") {
+                        document.body.classList.add("android-report");
+                    }
+                });
+
                 function printChronoMateReport() {
                     if (window.AndroidReportBridge &&
                         typeof window.AndroidReportBridge.printReport === "function") {

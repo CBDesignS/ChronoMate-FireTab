@@ -1,5 +1,15 @@
 # ChronoMate Android Changelog
 
+## v1.3.0
+
+### Changed
+
+- Unified the Android web application files with the tested ChronoMate Desktop v1.3.0 shared codebase.
+- Android and desktop now use the same `ChronoMate.html`, `style.css`, `app.js`, `session.js`, `report.js` and `data/ammo.js` files.
+- Preserved Android functionality through the shared guarded native bridge code.
+- Updated the Android application to versionCode 27 and versionName 1.3.0.
+- Updated GitHub Actions to generate `ChronoMate-v1.3.0.apk`.
+
 ## v1.2.0
 
 ### Changed
