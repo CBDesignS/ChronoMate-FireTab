@@ -2,7 +2,7 @@
 
 <img src="assets/logo.png" alt="ChronoMate Logo" width="600">
 
-# ChronoMate Android v1.2.0
+# ChronoMate Android v1.3.0
 
 ### Lightweight offline chronograph recording software for air rifles
 
