@@ -332,6 +332,16 @@ function openReportWindow(report) {
                         border-color: #cccccc !important;
                     }
 
+                    .shot-near-limit td {
+                        background: #ffe4b5 !important;
+                        color: #111111 !important;
+                    }
+
+                    .shot-over-limit td {
+                        background: #f8caca !important;
+                        color: #111111 !important;
+                    }
+
                     .report-header {
                         padding-bottom: 8px;
                         margin-bottom: 8px;
