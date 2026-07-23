@@ -1,5 +1,19 @@
 # ChronoMate Android Changelog
 
+## v1.1.1
+
+### Added
+
+- Added Sub-12 report warning highlighting to match the current desktop report.
+- Shot rows from 11.70 to 11.99 ft-lb are highlighted in pastel orange.
+- Shot rows at 12.00 ft-lb or above are highlighted in pastel red.
+- Warning colours are applied only when `Sub-12 ft-lb` is the selected power limit.
+- Existing Android report display, native printing and responsive layout behaviour are unchanged.
+- Updated Android application version to v1.1.1 with versionCode 24.
+- Updated GitHub Actions to generate `ChronoMate-v1.1.1.apk`.
+
+---
+
 ## v0.6.9
 
 ### Fixed
